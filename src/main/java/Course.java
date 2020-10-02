@@ -6,6 +6,7 @@ public class Course {
 
     private String Name;
     private ArrayList<Student> Students;
+    private ArrayList<Module> Module;
     private LocalDate StartDate;
     private LocalDate EndDate;
 
@@ -42,10 +43,19 @@ public class Course {
         EndDate = endDate;
     }
 
-    public Course(String name, ArrayList<Student> students, LocalDate startDate, LocalDate endDate) {
+    public ArrayList<Module> getModule() {
+        return Module;
+    }
+
+    public void setModule(ArrayList<Module> module) {
+        Module = module;
+    }
+
+    public Course(String name, ArrayList<Student> students,ArrayList<Module> modules, LocalDate startDate, LocalDate endDate) {
         Name = name;
         Students = students;
         StartDate = startDate;
         EndDate = endDate;
+        Module = modules;
     }
 }
