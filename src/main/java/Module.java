@@ -4,12 +4,14 @@ public class Module {
 
 
     private String Name;
+    private String ID;
     private ArrayList<Student> Students;
     private ArrayList<Course> Courses;
 
 
-    public Module(String name, ArrayList<Student> students, ArrayList<Course> courses) {
+    public Module(String name, String id, ArrayList<Student> students, ArrayList<Course> courses) {
         Name = name;
+        ID = id;
         Students = students;
         Courses = courses;
     }
@@ -38,7 +40,11 @@ public class Module {
         Courses = courses;
     }
 
+    public String getID() {
+        return ID;
+    }
 
-
-
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 }
