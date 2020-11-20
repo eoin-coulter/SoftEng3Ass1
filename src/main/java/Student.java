@@ -29,6 +29,21 @@ public class Student {
         return Name;
     }
 
+
+
+    public void addStudentToModule(Student student,Module module){
+        if (module.getStudents().contains(student)) {
+            return;
+        }
+        else{
+            student.Modules.add(module);
+            module.addStudent(student,module);
+            return;
+        }
+
+
+    }
+
     public void setName(String name) {
         Name = name;
     }

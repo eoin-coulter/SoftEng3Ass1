@@ -40,6 +40,27 @@ public class Module {
         Courses = courses;
     }
 
+    public void addStudent(Student student,Module module){
+
+        if (module.getStudents().contains(student)){
+            return;
+        }
+        else{
+            module.Students.add(student);
+        }
+    }
+    public void addModuleToCourse(Module module,Course course){
+        if(course.getModule().contains(module)){
+            return;
+        }
+        else{
+            module.Courses.add(course);
+            course.AddModuleToCourse(module, course);
+        }
+    }
+
+
+
     public String getID() {
         return ID;
     }

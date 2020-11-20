@@ -15,6 +15,32 @@ public class Course {
         return Name;
     }
 
+    public void AddStudentToCourse(Student student,Course course){
+
+        if(this.Students.contains(student)){
+            return;
+        }
+         else
+        this.Students.add(student);
+
+    }
+
+
+
+    public void AddModuleToCourse(Module module,Course course){
+        if (this.Module.contains(module)){
+            return;
+        }else
+
+        Module.add(module);
+        for(Student studentInModule : module.getStudents()){
+            this.AddStudentToCourse(studentInModule,course);
+            return;
+        }
+
+    }
+
+
     public void setName(String name) {
         Name = name;
     }

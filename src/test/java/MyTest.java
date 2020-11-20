@@ -18,7 +18,8 @@ public class MyTest {
          Student myTestStudent= new Student("Eoin Coulter",21,17902302,courses,modules,date);
 
         // assert statements
-        assertEquals("eoincoulter21", myTestStudent.getUserName(), "Correct, Test Passed");
+        assertEquals("eoincoulter21", myTestStudent.getUserName(), "" +
+                "Correct, Test Passed");
 
     }
 
