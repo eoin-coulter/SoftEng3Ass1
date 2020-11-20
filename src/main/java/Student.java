@@ -29,6 +29,15 @@ public class Student {
         return Name;
     }
 
+    public void addCourse( Course course){
+        if (this.Courses.contains(course)){
+            return;
+        }
+        else{
+            this.Courses.add(course);
+        }
+    }
+
 
 
     public void addStudentToModule(Student student,Module module){

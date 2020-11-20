@@ -22,6 +22,7 @@ public class Course {
         }
          else
         this.Students.add(student);
+         student.addCourse(course);
 
     }
 
