@@ -1,9 +1,20 @@
+type: runCI
+steps:
+  - IN: Software-Engineering-3_ciRepo
 language: java
 jdk:
-  - openjdk11
-after_success:
-  - mvn clean cobertura:cobertura
-  - mvn test
-notifications:
-email:
-recipients:
+  - oraclejdk11
+
+branches:
+  only:
+    - master
+
+build:
+  ci:
+    - mvn test
+    - mvn install
+
+otifications:
+  email:
+    recipients:
+      e.coulter1@nuigalway.ie
