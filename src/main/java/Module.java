@@ -42,7 +42,7 @@ public class Module {
 
     public void addStudent(Student student,Module module){
 
-        if (module.getStudents().contains(student)){
+        if (this.getStudents().contains(student)){
             return;
         }
         else{
@@ -51,6 +51,7 @@ public class Module {
     }
     public void addModuleToCourse(Module module,Course course){
         if(course.getModule().contains(module)){
+            course.AddModuleToCourse(module, course);
             return;
         }
         else{
