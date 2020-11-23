@@ -18,7 +18,9 @@ public class Course {
     public void AddStudentToCourse(Student student,Course course){
 
         if(this.Students.contains(student)){
+            student.addCourse(course);
             return;
+
         }
          else
         this.Students.add(student);
