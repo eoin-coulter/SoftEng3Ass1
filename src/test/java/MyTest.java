@@ -10,76 +10,84 @@ public class MyTest {
     ArrayList<Course> courses;
 
     Date date;
-    Student myTestStudent= new Student("Eoin Coulter",21,17902302,course ,new ArrayList<Module>(),date);
-    Module myTestModule = new Module("TestModule","123",new ArrayList<Student>(),new ArrayList<Course>());
+    Student testStudent= new Student("Eoin Coulter",21,17902302,course ,new ArrayList<Module>(),date);
+    Module testModule = new Module("TestModule","123",new ArrayList<Student>(),new ArrayList<Course>());
     Course testCourse = new Course("TestCourse",new ArrayList<Student>(),new ArrayList<Module>(),new LocalDate("2018-05-05"),new LocalDate("2018-05-06"));
 
 
 
-    @Test
-    public void gettingUsernameShouldReturnNamePlusAge() {
-
-        // assert statements
-        assertEquals("eoincoulter21", myTestStudent.getUserName(), "" +
-                "Correct, Test Passed");
-
-    }
-
+    //Student Tests
 
     @Test
-    //StudentTests
     public void testingAddCourse(){
-        myTestStudent.addCourse(testCourse);
+        testStudent.addCourse(testCourse);
+        assertEquals("TestCourse",testStudent.getCourses().getName(),"testPass");
 
 
     }
     @Test
-
     public void testStudentToModule(){
-        myTestStudent.addStudentToModule(myTestStudent,myTestModule);
 
-        assertEquals(1,myTestStudent.getModules().size());
-        assertEquals(1,myTestModule.getStudents().size(),"testing");
+        testStudent.addStudentToModule(testStudent,testModule);
+
+
+        assertEquals(1,testStudent.getModules().size());
+        assertEquals(1,testModule.getStudents().size(),"testing");
+
+        assertEquals(testModule.getStudents().get(0).getUserName(), testStudent.getUserName(), "Student Added Correctly");
+        assertEquals(testStudent.getModules().get(0).getName(), testModule.getName(), "Module Added Correctly");
     }
 
-//module tests
     @Test
+    public void userNameTest() {
 
+        assertEquals("eoincoulter21", testStudent.getUserName(),"Test Passed");
+    }
+
+    //Module Tests
+
+    @Test
     public void moduleAddStudentTest(){
-        myTestModule.addStudent(myTestStudent,myTestModule);
+        testModule.addStudent(testStudent,testModule);
+        assertEquals(1,testModule.getStudents().size(),"Different number of students");
 
-
-        assertEquals(1,myTestModule.getStudents().size(),"testing");
+        assertEquals(testModule.getStudents().get(0).getUserName(), testStudent.getUserName(), "User Added Correctly");
     }
 
     @Test
-
     public void addModuleToCourseTest(){
-        myTestModule.addModuleToCourse(myTestModule,testCourse);
+        testModule.addModuleToCourse(testModule,testCourse);
 
-        assertEquals(1,myTestModule.getCourses().size());
-        assertEquals(1,testCourse.getModule().size());
+        assertEquals(1,testModule.getCourses().size(), "Testing number of courses");
+        assertEquals(1,testCourse.getModule().size(),"Testing number of modules");
+
+        assertEquals(testCourse.getModule().get(0).getName(), testModule.getName(), "Correct Module Added");
+
     }
 
 
-    //courseTest
+
     @Test
     public void addModuleInCourseTest(){
-        testCourse.AddModuleToCourse(myTestModule,testCourse);
+        testCourse.AddModuleToCourse(testModule,testCourse);
         assertEquals(1,testCourse.getModule().size());
 
-
-
-
+        assertEquals(testCourse.getModule().get(0).getName(), testModule.getName(), "Correct Module Added");
     }
+
     @Test
-
     public void addStudentToCourseTest(){
-        testCourse.AddStudentToCourse(myTestStudent,testCourse);
+        testCourse.AddStudentToCourse(testStudent);
 
-        assertEquals(1,testCourse.getStudents().size(),"testing course has student");
+        assertEquals(1,testCourse.getStudents().size(),"Course has student");
+        assertEquals(1,testStudent.getCourses().getStudents().size(),"student in course");
 
+        assertEquals(testCourse.getStudents().get(0).getUserName(), testStudent.getUserName(), "correct student added");
     }
+
+
+
+
 
 
 

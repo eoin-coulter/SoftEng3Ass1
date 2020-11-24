@@ -35,6 +35,7 @@ public class Student {
         }
         else{
             this.Courses = course;
+            this.Modules = course.getModule();
         }
     }
 

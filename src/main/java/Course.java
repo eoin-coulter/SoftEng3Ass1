@@ -15,16 +15,16 @@ public class Course {
         return Name;
     }
 
-    public void AddStudentToCourse(Student student,Course course){
+    public void AddStudentToCourse(Student student){
 
         if(this.Students.contains(student)){
-            student.addCourse(course);
+            student.addCourse(this);
             return;
 
         }
          else
         this.Students.add(student);
-         student.addCourse(course);
+         student.addCourse(this);
 
     }
 
