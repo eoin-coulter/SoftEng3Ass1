@@ -32,18 +32,15 @@ public class Course {
 
     public void AddModuleToCourse(Module module,Course course){
         if (this.Module.contains(module)){
-            for(Student studentInModule : module.getStudents()){
-                this.AddStudentToCourse(studentInModule,course);}
+
             return;
         }else
 
         Module.add(module);
-        for(Student studentInModule : module.getStudents()){
-            this.AddStudentToCourse(studentInModule,course);
             return;
         }
 
-    }
+
 
 
     public void setName(String name) {

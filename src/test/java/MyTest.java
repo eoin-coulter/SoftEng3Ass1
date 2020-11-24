@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MyTest {
-    ArrayList<Student> students;
+   Course course;
     ArrayList<Course> courses;
-    ArrayList<Module> modules;
+
     Date date;
-    Student myTestStudent= new Student("Eoin Coulter",21,17902302,new ArrayList<Course>(),new ArrayList<Module>(),date);
+    Student myTestStudent= new Student("Eoin Coulter",21,17902302,course ,new ArrayList<Module>(),date);
     Module myTestModule = new Module("TestModule","123",new ArrayList<Student>(),new ArrayList<Course>());
     Course testCourse = new Course("TestCourse",new ArrayList<Student>(),new ArrayList<Module>(),new LocalDate("2018-05-05"),new LocalDate("2018-05-06"));
 
@@ -30,7 +30,7 @@ public class MyTest {
     //StudentTests
     public void testingAddCourse(){
         myTestStudent.addCourse(testCourse);
-        assertEquals(1,myTestStudent.getCourses().size(),"testPass");
+
 
     }
     @Test
@@ -78,7 +78,7 @@ public class MyTest {
         testCourse.AddStudentToCourse(myTestStudent,testCourse);
 
         assertEquals(1,testCourse.getStudents().size(),"testing course has student");
-        assertEquals(1,myTestStudent.getCourses().size(),"testing Student Has Course");
+
     }
 
 

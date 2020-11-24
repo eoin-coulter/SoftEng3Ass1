@@ -9,12 +9,12 @@ public class Student {
     private int Age;
     private int ID;
     private String UserName;
-    private ArrayList<Course> Courses;
+    private Course Courses;
     private ArrayList<Module> Modules;
     private Date DOB;
 
 
-    public Student(String name, int age, int id, ArrayList<Course> courses, ArrayList<Module> modules, Date dob) {
+    public Student(String name, int age, int id, Course courses, ArrayList<Module> modules, Date dob) {
         this.Name = name;
         this.Age = age;
         this.ID = id;
@@ -30,11 +30,11 @@ public class Student {
     }
 
     public void addCourse( Course course){
-        if (this.Courses.contains(course)){
+        if (this.Courses != null){
             return;
         }
         else{
-            this.Courses.add(course);
+            this.Courses = course;
         }
     }
 
@@ -73,11 +73,11 @@ public class Student {
         this.ID = ID;
     }
 
-    public ArrayList<Course> getCourses() {
+    public Course getCourses() {
         return Courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
+    public void setCourses(Course courses) {
         Courses = courses;
     }
 
